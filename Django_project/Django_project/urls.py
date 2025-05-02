@@ -24,5 +24,10 @@ urlpatterns = [
  
 urlpatterns = [
     path("alter_test", test),
-    path("get_user_profile", get_user_profile),
+    path("profile", get_user_profile),
+    path("products", get_products),
+    path("category_page", get_category_page),
+    path("search", search),
+    path("", get_all),
+    path("create", add_entitiy)
 ]

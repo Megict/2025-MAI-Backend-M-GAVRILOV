@@ -4,9 +4,12 @@ class LRUCache:
         self.capacity = capacity
 
     def get(self, key: str) -> str:
-        try:
-            return self.cache_dict[key]
-        except KeyError:
+        if key in self.cache_dict: # чтобы неявно хранить порядок использования в структуре словаря
+			res = self.cache_dict[key]
+            self.cache_dict.pop(key)
+			self.cache_dict[key] = res # ставим значение в конец
+            return res
+        else:
             return ''
 
     def set(self, key: str, value: str) -> None:
